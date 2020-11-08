@@ -1,2 +1,1 @@
 # boot.py - - runs on boot-up
-# import imagedemo

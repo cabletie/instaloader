@@ -1,32 +1,44 @@
-# MicroPython-ST7735
+# Instaloader
+## Author
+@cabletie
+cabletie@pjndj.net
 
-This is a modified version of [GuyCarver's ST7735.py](https://github.com/GuyCarver/MicroPython/blob/master/lib/ST7735.py) ST7735 TFT LCD driver for MicroPython.
+## Summary
+Kit that downloads images from an instagram accout and displays them on an ESP32 with an LCD
 
-This version is for micropython-esp32.
+## Overview of operation
+* periodically a cron job on a raspberry pi downloads instagram images using the "instaloader" tool available from 
+* Links newest (latest) image to latest.jpg
+* Cron script converts latest.jpb to latest_135.jpg and down-scales to max 135 pixels high
+* Apache service running on RPi serves these files via http
+* ESP32 (TTGO T-Display module running LoBo uPython) client program periodically retrieves latest_135.jpg from the server and;
+* displays it on it's connected LCD
 
-A font file is necessary for displaying text (some font files are in [GuyCarver's repo](https://github.com/GuyCarver/MicroPython/tree/master/lib)).
+## image scaling python script
+tools/scale.py
+* Uses PILL module to scale down to max width
+* Edit the script to set the width for your LCD
 
-Text nowrap option added(default: nowrap=False).
+## RPi cron script
+tools/instaloader.sh
+* Runs every 5 minutes between 8 pm and 2 am (most likely time for this instagram account to be updated)
+* Runs once/hour other times
+* runs the main instaloader script to fetch only entries since last download
+* creates a link to the latest image file
+* calls the scale.py script to scale it to a usable size for the LCD
 
-graphicstest.py is a sample code. I wrote this to make it similar to [Adafruit's graphicstest sketch for Arduino](https://github.com/adafruit/Adafruit-ST7735-Library/tree/master/examples/graphicstest). 
+## References
+### instaloader
+https://github.com/instaloader/instaloader
 
-If graphicstest.py doesn't work correctly, try replaceing initr() at line 8 to initg() or initb() or initb2(). You can also change rgb(True) to rgb(False) to switch red and blue pixels if your LCD module shows incorrect colors.
+## Loboris micropython
+https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo
+Note this is a really great implementation IMO but sadly doesn't seem to be being kept updated. If someone knows where all the great moduels  can be found separately, or if it's being maintained somewhere else I'd love to know.
 
-Pin connections:
+### Loboris Display Module
+https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/display
+LoBo has a really good display module built in.
 
-LCD |ESP32-DevKitC
-----|----
-VLED|3V3
-RST |IO17
-A0  |IO16(DC)
-SDA |IO13(MOSI)
-SCK |IO14(CLK)
-VCC |3V3
-CS  |IO18
-GND |GND
-
-[![YouTube image here](https://img.youtube.com/vi/xIy8DPBZsIk/0.jpg)](https://www.youtube.com/watch?v=xIy8DPBZsIk)
-
-tftbmp.py is another sample similar to [Adafruit's tftbmp sketch for Arduino](https://github.com/adafruit/Adafruit-ST7735-Library/blob/master/examples/spitftbitmap/spitftbitmap.ino).
-
-Place bmp file named 'test128x160.bmp' in the file system of MicroPython using file uploading tool such as [ampy](https://github.com/adafruit/ampy), etc.
+# Loads image from particle pi server (latest image from eia365 on intsagram)
+# And displays on ST7899 screen
+# Loboris Display reference at https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/display
