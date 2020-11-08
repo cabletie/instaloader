@@ -1,6 +1,6 @@
 [MASTER]
 # Loaded Stubs:  esp32_LoBo-esp32_LoBo-3.2.24 
-init-hook='import sys;sys.path.insert(1, ".micropy/BradenM-micropy-stubs-6a1f50d/frozen");sys.path.insert(1, ".micropy/BradenM-micropy-stubs-c2ec306/frozen");sys.path.insert(1, ".micropy/BradenM-micropy-stubs-6a1f50d/stubs");sys.path.insert(1, ".micropy/MicroPython-ST7735-master");'
+init-hook='import sys;sys.path.insert(1, ".micropy/BradenM-micropy-stubs-6a1f50d/frozen");sys.path.insert(1, ".micropy/BradenM-micropy-stubs-c2ec306/frozen");sys.path.insert(1, ".micropy/BradenM-micropy-stubs-6a1f50d/stubs");sys.path.insert(1, ".micropy/instaloader");'
 indent-string='  '
 
 [MESSAGES CONTROL]
@@ -21,4 +21,4 @@ confidence=
 disable = missing-docstring, line-too-long, trailing-newlines, broad-except, logging-format-interpolation, invalid-name, empty-docstring,
         no-method-argument, assignment-from-no-return, too-many-function-args, unexpected-keyword-arg,
         bad-whitespace
-        # the 2nd  line deals with the limited information in the generated stubs.mation in the generated stubs.
+        # the 2nd  line deals with the limited information in the generated stubs.
