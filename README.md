@@ -33,7 +33,7 @@ Ultimately it'd be good to get this all working on the ESP32 to avoid using the 
 ### instaloader
 https://github.com/instaloader/instaloader
 
-## Loboris micropython
+### Loboris micropython
 https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo
 Note this is a really great implementation IMO but sadly doesn't seem to be being kept updated. If someone knows where all the great moduels  can be found separately, or if it's being maintained somewhere else I'd love to know.
 
@@ -41,6 +41,5 @@ Note this is a really great implementation IMO but sadly doesn't seem to be bein
 https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/display
 LoBo has a really good display module built in which supports the ST7899 on the TTGO T-Display module.
 
-# Loads image from particle pi server (latest image from eia365 on intsagram)
-# And displays on ST7899 screen
-# Loboris Display reference at https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/display
+### Lilygo(tm) TTGO T-Display
+[LilyGo modules as used in this project](http://www.lilygo.cn/prod_view.aspx?TypeId=50033&Id=1126&FId=t3:50033:3)
