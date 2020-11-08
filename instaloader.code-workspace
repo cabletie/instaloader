@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "SSH FS - particlepi",
+			"uri": "ssh://particlepi/"
+		}
+	],
+	"settings": {}
+}

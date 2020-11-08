@@ -1,0 +1,2 @@
+micropython-shutil
+urequests

@@ -1,0 +1,17 @@
+{
+    "name": "MicroPython-ST7735-master",
+    "stubs": {
+        "esp32_LoBo-esp32_LoBo-3.2.24": "1.2.0"
+    },
+    "dev-packages": {
+        "micropy-cli": "*"
+    },
+    "packages": {
+        "urequests": "*",
+        "micropython-shutil": "*"
+    },
+    "config": {
+        "vscode": true,
+        "pylint": true
+    }
+}
