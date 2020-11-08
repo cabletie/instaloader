@@ -1,7 +1,7 @@
 # Instaloader
 ## Author
-@cabletie
-cabletie@pjndj.net
+* @cabletie
+* cabletie@pjndj.net
 
 ## Summary
 Kit that downloads images from an instagram accout and displays them on an ESP32 with an LCD
@@ -14,13 +14,15 @@ Kit that downloads images from an instagram accout and displays them on an ESP32
 * ESP32 (TTGO T-Display module running LoBo uPython) client program periodically retrieves latest_135.jpg from the server and;
 * displays it on it's connected LCD
 
+Ultimately it'd be good to get this all working on the ESP32 to avoid using the intermediate RaspberryPi
+
 ## image scaling python script
-tools/scale.py
+[tools/scale.py](https://github.com/cabletie/instaloader/blob/master/tools/instaloader.sh)
 * Uses PILL module to scale down to max width
 * Edit the script to set the width for your LCD
 
 ## RPi cron script
-tools/instaloader.sh
+[tools/instaloader.sh](https://github.com/cabletie/instaloader/blob/master/tools/scale.py)
 * Runs every 5 minutes between 8 pm and 2 am (most likely time for this instagram account to be updated)
 * Runs once/hour other times
 * runs the main instaloader script to fetch only entries since last download
@@ -37,7 +39,7 @@ Note this is a really great implementation IMO but sadly doesn't seem to be bein
 
 ### Loboris Display Module
 https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/display
-LoBo has a really good display module built in.
+LoBo has a really good display module built in which supports the ST7899 on the TTGO T-Display module.
 
 # Loads image from particle pi server (latest image from eia365 on intsagram)
 # And displays on ST7899 screen
